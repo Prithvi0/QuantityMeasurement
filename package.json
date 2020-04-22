@@ -1,16 +1,15 @@
 {
-  "name": "quantity_measurement.js",
+  "name": "mochatest",
   "version": "1.0.0",
-  "description": "Quantity Measurement using TDD Approach",
-  "main": "index.js",
+  "description": "Tests for Quantity Measurement",
+  "main": "QuantityMeasurement.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha 'test/**/*.js'"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "chai": "^4.2.0",
-    "dev": "^0.1.3",
     "mocha": "^7.1.1"
   }
 }
