@@ -232,3 +232,35 @@ describe('Tests for adding Volumes:\n', () => {
         });
     });
 });
+
+// Test cases for to compare and add Weights
+describe('Tests to compare and add weights:\n', () => {
+    // U.C 7: Comparing and Adding Weights in gram and kilogram
+    describe('Tests to compare weights:', () => {
+        // T.C 7.1: Test case to check 1 kilogram equals 1000 grams
+        it('should return 1000 grams when given 1 kilogram', () => {
+            var oneKilogram = new QuantityConversion(1);
+            var thousandGrams = new QuantityConversion(1000);
+            assert.equal(oneKilogram.getKilogramConversion(),
+                        thousandGrams.getKilogramToGramConversion());
+        });
+
+        // T.C 7.2: Test case to check 1 tonne equals 1000 kilograms
+        it('should return 1000 kilograms when given 1 tonne', () => {
+            var oneTonne = new QuantityConversion(1);
+            var thousandKilogram = new QuantityConversion(1000);
+            assert.equal(oneTonne.getTonneInGrams(), thousandKilogram.getKilogramConversion());
+        });
+    });
+
+    describe('\n\tTest to add weights:', () => {
+    // T.C 7.3: Test case to add 1 tonne and 1000 grams
+        it('should return 1001 kilograms when given 1 tonne and 1000 grams', () => {
+            var oneTonne = new QuantityConversion(1);
+            var thousandGrams = new QuantityConversion(1000);
+            var sumOf1TonneAnd1000g = oneTonne.getTonneInGrams()
+                                    + thousandGrams.getKilogramToGramConversion();
+            assert.equal(sumOf1TonneAnd1000g, 1001);
+        });
+    });
+});
