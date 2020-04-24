@@ -1,4 +1,9 @@
-const inchToFeetConversion = 12
-const QuantityMeasurement = (length) => (length * inchToFeetConversion)
-
-module.exports = { QuantityMeasurement }
+var QuantityMeasurement = function(length) {
+    this.length = length;
+  };
+  
+  QuantityMeasurement.prototype.getInchToFeetConversion = function() {
+        return this.length * 12;
+  };
+  
+  module.exports = QuantityMeasurement;
