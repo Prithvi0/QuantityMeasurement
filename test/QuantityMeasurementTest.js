@@ -147,4 +147,37 @@ describe('Tests for Length Conversions:\n', () => {
             assert.equal(twoInches.getInchToFeetConversion(), fiveCentimeters.getInchToCmConversion());
         });
     });
+
+    // U.C 4: Test Cases for Adding 2 lengths in Inches
+    describe('\nTests for Adding 2 lengths in Inches:', () => {
+        // T.C 4.1: Test case to add 2 inches and 2 inches
+         it('should return 4 inches when added 2 inches and 2 inches', () => {
+            var twoInches = new QuantityConversion(2);
+            var sumOf2TwoInches = twoInches.getInchToFeetConversion() + twoInches.getInchToFeetConversion();
+            assert.equal(sumOf2TwoInches, 4);
+        });
+
+        // T.C 4.2: Test case to add 1 foot and 2 inches
+        it('should return 14 inches when added 1 foot and 2 inches', () => {
+            var oneFoot = new QuantityConversion(1);
+            var twoInches = new QuantityConversion(2);
+            var sumOfOneFootAndTwoInches = oneFoot.getFeetToInchConversion() + twoInches.getInchToFeetConversion();
+            assert.equal(sumOfOneFootAndTwoInches, 14);
+        });
+
+        // T.C 4.3: Test case to add 1 foot and 1 foot
+        it('should return 24 inches when added 1 foot and 1 foot', () => {
+            var oneFoot = new QuantityConversion(1);
+            var sumOf2OneFoot = oneFoot.getFeetToInchConversion() + oneFoot.getFeetToInchConversion();
+            assert.equal(sumOf2OneFoot, 24);
+        });
+
+        // T.C 4.4: Test case to 2 inches and 2.5 centimeters
+        it('should return 3 inches when added 2 inches and 2.5 centimeters', () => {
+            var twoInches = new QuantityConversion(2);
+            var twoDotFiveCms = new QuantityConversion(2.5);
+            var sumOf2InAnd2Dot5Cms = twoInches.getInchToFeetConversion() + twoDotFiveCms.getInchToCmConversion();
+            assert.equal(sumOf2InAnd2Dot5Cms, 3);
+        });
+    });
 });
