@@ -14,7 +14,8 @@ describe('Tests for Length Conversions:\n', () => {
         // T.C 1.2: Null Check (Feet To Inch)
          it('should return null when given null', () => {
             var quantityObject = new QuantityConversion(null);
-            if (quantityObject.getFeetToInchConversion() == "" || quantityObject.getFeetToInchConversion() == null) {
+            if (quantityObject.getFeetToInchConversion() == ""
+                || quantityObject.getFeetToInchConversion() == null) {
                 assert.isNull(null);
             }
         });
@@ -56,7 +57,8 @@ describe('Tests for Length Conversions:\n', () => {
         // T.C 1.6: Null Check (Inch To Feet)
         it('should return null when given null', () => {
             var quantityObject = new QuantityConversion(null);
-            if (quantityObject.getInchToFeetConversion() == "" || quantityObject.getInchToFeetConversion() == null) {
+            if (quantityObject.getInchToFeetConversion() == ""
+                || quantityObject.getInchToFeetConversion() == null) {
                 assert.isNull(null);
             }
         });
@@ -89,7 +91,8 @@ describe('Tests for Length Conversions:\n', () => {
         // T.C 1.9: Value Check (Inch To Feet)
         it('should return equal when given 1 Inches', () => {
             var quantityObject = new QuantityConversion(1);
-            assert.equal(quantityObject.getInchToFeetConversion(), quantityObject.getInchToFeetConversion());
+            assert.equal(quantityObject.getInchToFeetConversion(),
+                        quantityObject.getInchToFeetConversion());
         });
     });
 
@@ -154,7 +157,8 @@ describe('Tests for Length Conversions:\n', () => {
         // T.C 4.1: Test case to add 2 inches and 2 inches
          it('should return 4 inches when added 2 inches and 2 inches', () => {
             var twoInches = new QuantityConversion(2);
-            var sumOf2TwoInches = twoInches.getInchToFeetConversion() + twoInches.getInchToFeetConversion();
+            var sumOf2TwoInches = twoInches.getInchToFeetConversion()
+                                + twoInches.getInchToFeetConversion();
             assert.equal(sumOf2TwoInches, 4);
         });
 
@@ -162,7 +166,8 @@ describe('Tests for Length Conversions:\n', () => {
         it('should return 14 inches when added 1 foot and 2 inches', () => {
             var oneFoot = new QuantityConversion(1);
             var twoInches = new QuantityConversion(2);
-            var sumOfOneFootAndTwoInches = oneFoot.getFeetToInchConversion() + twoInches.getInchToFeetConversion();
+            var sumOfOneFootAndTwoInches = oneFoot.getFeetToInchConversion()
+                                        + twoInches.getInchToFeetConversion();
             assert.equal(sumOfOneFootAndTwoInches, 14);
         });
 
@@ -173,11 +178,12 @@ describe('Tests for Length Conversions:\n', () => {
             assert.equal(sumOf2OneFoot, 24);
         });
 
-        // T.C 4.4: Test case to 2 inches and 2.5 centimeters
+        // T.C 4.4: Test case to add 2 inches and 2.5 centimeters
         it('should return 3 inches when added 2 inches and 2.5 centimeters', () => {
             var twoInches = new QuantityConversion(2);
             var twoDotFiveCms = new QuantityConversion(2.5);
-            var sumOf2InAnd2Dot5Cms = twoInches.getInchToFeetConversion() + twoDotFiveCms.getInchToCmConversion();
+            var sumOf2InAnd2Dot5Cms = twoInches.getInchToFeetConversion()
+                                    + twoDotFiveCms.getInchToCmConversion();
             assert.equal(sumOf2InAnd2Dot5Cms, 3);
         });
     });
@@ -185,7 +191,7 @@ describe('Tests for Length Conversions:\n', () => {
 
 // Test cases for the Volume Conversions
 describe('Tests for Volume Conversions:\n', () => {
-    //U.C 5: Adding Volumes in Litre and Gallon
+    // U.C 5: Adding Volumes in Litre and Gallon
     describe('Tests for Volumes to Litres and Milli-Litres Conversions:', () => {
         // T.C 5.1: Test case to check 1 gallon equals 3.78 litres
         it('should return equal when given 1 gallon and 3.78 litres', () => {
@@ -199,6 +205,30 @@ describe('Tests for Volume Conversions:\n', () => {
             var oneLitre = new QuantityConversion(1);
             var thousandMillilitre = new QuantityConversion(1000);
             assert.equal(oneLitre.getLitreConversion(), thousandMillilitre.getMilliLitreConversion());
+        });
+    });
+});
+
+// Test cases for adding Volumes
+describe('Tests for adding Volumes:\n', () => {
+    // U.C 6: Adding Volumes in Litre and Gallon
+    describe('Tests for Volumes in Litres:', () => {
+        // T.C 6.1: Test case to add 1 gallon and 3.78 litres
+        it('should return 7.56 litres when given 1 gallon and 3.78 litres', () => {
+            var oneGallon = new QuantityConversion(1);
+            var threeDot78Litres = new QuantityConversion(3.78);
+            var sumOf1GallonAnd3Dot78Litres = oneGallon.getGallonToLitreConversion()
+                                            + threeDot78Litres.getLitreConversion();
+            assert.equal(sumOf1GallonAnd3Dot78Litres, 7.56);
+        });
+
+        // T.C 6.2: Test case to add 1 litre and 1000 milli-litres
+        it('should return 2 litres when given 1 litre and 1000 millilitres', () => {
+            var oneLitre = new QuantityConversion(1);
+            var thousandMillilitre = new QuantityConversion(1000);
+            var sumOf1LAnd1000ml = oneLitre.getLitreConversion()
+                                + thousandMillilitre.getMilliLitreConversion();
+            assert.equal(sumOf1LAnd1000ml, 2);
         });
     });
 });
