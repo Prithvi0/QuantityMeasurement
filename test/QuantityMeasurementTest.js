@@ -1,14 +1,15 @@
 var assert = require('chai').assert;
 var QuantityConversion = require('../main/QuantityMeasurement');
 
+// Test cases for the Length Conversions
 describe('Tests for Length Conversions:\n', () => {
-    //U.C 1: Test Cases for Feet To Inch Conversions
+    //U.C 1: Compare Lengths to Inches and Feet 
     describe('Tests for Feet to Inch Conversions:', () => {
-        // T.C 1.1: Test case to check if given 0 Feet and 0 Feet should return equal
+        // T.C 1.1: Test case to check when given 0 Feet and 0 Feet should return equal
         it('should return equal when given 0 Feet and 0 Feet', () => {
             var quantityObject = new QuantityConversion(0);
             assert.equal(quantityObject.getFeetToInchConversion(), 0);
-        })
+        });
 
         // T.C 1.2: Null Check (Feet To Inch)
          it('should return null when given null', () => {
@@ -48,7 +49,7 @@ describe('Tests for Length Conversions:\n', () => {
             var quantityObject = new QuantityConversion(1);
             assert.notEqual(quantityObject.getFeetToInchConversion(), 1);
         });
-    })
+    });
 
     // Test Cases for Inch To Feet Conversions
     describe('\nTests for Inch To Feet Conversions:', () => {
@@ -90,9 +91,9 @@ describe('Tests for Length Conversions:\n', () => {
             var quantityObject = new QuantityConversion(1);
             assert.equal(quantityObject.getInchToFeetConversion(), quantityObject.getInchToFeetConversion());
         });
-    })
+    });
 
-    // U.C 2: Test Cases for Feet To Yard Conversions
+    // U.C 2: Compare Lengths to Yard
     describe('\nTests for Feet To Yard Conversions:', () => {
         // T.C 2.1: Test case to check 3 Feet equals 1 Yard
          it('should return equal when given 3 feet and 1 yard', () => {
@@ -138,7 +139,7 @@ describe('Tests for Length Conversions:\n', () => {
         });
     });
 
-    // U.C 3: Test Case for Inch To Centimeter Conversion
+    // U.C 3: Compare Inch to Centimeter
     describe('\nTest for Inch To Centimeter Conversion:', () => {
         // T.C 3: Test case to check 2 Inches equals 5 Centimeters
          it('should return equal when given 2 inches and 5 centimeters', () => {
@@ -148,7 +149,7 @@ describe('Tests for Length Conversions:\n', () => {
         });
     });
 
-    // U.C 4: Test Cases for Adding 2 lengths in Inches
+    // U.C 4: Adding 2 lengths in Inches
     describe('\nTests for Adding 2 lengths in Inches:', () => {
         // T.C 4.1: Test case to add 2 inches and 2 inches
          it('should return 4 inches when added 2 inches and 2 inches', () => {
@@ -178,6 +179,26 @@ describe('Tests for Length Conversions:\n', () => {
             var twoDotFiveCms = new QuantityConversion(2.5);
             var sumOf2InAnd2Dot5Cms = twoInches.getInchToFeetConversion() + twoDotFiveCms.getInchToCmConversion();
             assert.equal(sumOf2InAnd2Dot5Cms, 3);
+        });
+    });
+});
+
+// Test cases for the Volume Conversions
+describe('Tests for Volume Conversions:\n', () => {
+    //U.C 5: Adding Volumes in Litre and Gallon
+    describe('Tests for Volumes to Litres and Milli-Litres Conversions:', () => {
+        // T.C 5.1: Test case to check 1 gallon equals 3.78 litres
+        it('should return equal when given 1 gallon and 3.78 litres', () => {
+            var oneGallon = new QuantityConversion(1);
+            var threeDot78Litres = new QuantityConversion(3.78);
+            assert.equal(oneGallon.getGallonToLitreConversion(), threeDot78Litres.getLitreConversion());
+        });
+
+        // T.C 5.2: Test case to check 1 litre equals 1000 milli-litres
+        it('should return equal when given 1 litre and 1000 millilitres', () => {
+            var oneLitre = new QuantityConversion(1);
+            var thousandMillilitre = new QuantityConversion(1000);
+            assert.equal(oneLitre.getLitreConversion(), thousandMillilitre.getMilliLitreConversion());
         });
     });
 });
