@@ -48,6 +48,17 @@ class QuantityMeasurement {
     getTonneInGrams() {
         return this.unit * 1000; // tonne(s)
     }
+
+    // Temperature Conversion
+    // Method to get Celsius to Fahrenheit Conversion
+    getCelsiusToFahrenheitConversion() {
+        return this.unit * (9 / 5) + 32;    // fahrenheit
+    }
+
+    // Method to get Fahrenheit to Celsius Conversion
+    getFahrenheitToCelsiusConversion() {
+        return this.unit;   // celsius
+    }
 }
 
 module.exports = QuantityMeasurement;

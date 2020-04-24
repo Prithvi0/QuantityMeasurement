@@ -264,3 +264,14 @@ describe('Tests to compare and add weights:\n', () => {
         });
     });
 });
+
+// U.C 8: Equate temperature in Fahrenheit and Celsius
+describe('Test to equate Temperature in Fahrenheit and Celsius:\n', () => {
+    // T.C 8.1: Test case to check 1 kilogram equals 1000 grams
+    it('should return 100 celsius when given 212 fahrenheit', () => {
+        var hundredCelsius = new QuantityConversion(100);
+        var twoOneTwoFahrenheit = new QuantityConversion(212);
+        assert.equal(hundredCelsius.getCelsiusToFahrenheitConversion(),
+                    twoOneTwoFahrenheit.getFahrenheitToCelsiusConversion());
+    });
+});
