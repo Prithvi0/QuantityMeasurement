@@ -2,7 +2,7 @@ var assert = require('chai').assert;
 var QuantityConversion = require('../main/QuantityMeasurement');
 
 describe('Tests for Length Conversions:\n', () => {
-    // Test Cases for Feet To Inch Conversions
+    //U.C 1: Test Cases for Feet To Inch Conversions
     describe('Tests for Feet to Inch Conversions:', () => {
         // T.C 1.1: Test case to check if given 0 Feet and 0 Feet should return equal
         it('should return equal when given 0 Feet and 0 Feet', () => {
@@ -92,7 +92,7 @@ describe('Tests for Length Conversions:\n', () => {
         });
     })
 
-    // Test Cases for Feet To Yard Conversions
+    // U.C 2: Test Cases for Feet To Yard Conversions
     describe('\nTests for Feet To Yard Conversions:', () => {
         // T.C 2.1: Test case to check 3 Feet equals 1 Yard
          it('should return equal when given 3 feet and 1 yard', () => {
@@ -135,6 +135,16 @@ describe('Tests for Length Conversions:\n', () => {
             var oneYard = new QuantityConversion(1);
             var threeFeet = new QuantityConversion(3);
             assert.equal(oneYard.getFeetToYardConversion(), threeFeet.getFeetToInchConversion());
+        });
+    });
+
+    // U.C 3: Test Case for Inch To Centimeter Conversion
+    describe('\nTest for Inch To Centimeter Conversion:', () => {
+        // T.C 3: Test case to check 2 Inches equals 5 Centimeters
+         it('should return equal when given 2 inches and 5 centimeters', () => {
+            var twoInches = new QuantityConversion(2);
+            var fiveCentimeters = new QuantityConversion(5);
+            assert.equal(twoInches.getInchToFeetConversion(), fiveCentimeters.getInchToCmConversion());
         });
     });
 });
