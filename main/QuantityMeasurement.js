@@ -10,8 +10,12 @@ QuantityMeasurement.prototype.getFeetToInchConversion = function() {
 
 // Method to get inch to feet conversion
 QuantityMeasurement.prototype.getInchToFeetConversion = function() {
-    return this.length / 12;
+    return this.length;
 }
 
-// Method to get 
+// Method to get feet to yard conversionet
+QuantityMeasurement.prototype.getFeetToYardConversion = function() {
+    return this.length * 36;
+}
+
 module.exports = QuantityMeasurement;
