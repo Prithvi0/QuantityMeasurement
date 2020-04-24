@@ -3,7 +3,7 @@ var QuantityConversion = require('../main/QuantityMeasurement');
 
 describe('Tests for Length Conversions:\n', () => {
     // Test Cases for Inch To Feet Conversions
-    describe('Tests for Inch to Feet Conversions:\n', () => {
+    describe('Tests for Inch to Feet Conversions:', () => {
         // T.C 1.1: Given 0 Feet and 0 Feet should return equal
         it('should return equal when given 0 feet and 0 feet', () => {
             var quantityObject = new QuantityConversion(0);
@@ -44,14 +44,14 @@ describe('Tests for Length Conversions:\n', () => {
         });
 
         // T.C 1.5: Value Check (Inch To Feet)
-        it('should return unequal when given 1 feet and 1 feet', () => {
+        it('should return unequal when given 1 inch equals 1 foot', () => {
             var quantityObject = new QuantityConversion(1);
             assert.notEqual(quantityObject.getInchToFeetConversion(), 1);
         });
     })
 
     // Test Cases for Feet To Inch Conversions
-    describe('Tests for Feet To Inch Conversions:\n', () => {
+    describe('\nTests for Feet To Inch Conversions:', () => {
         // T.C 1.6: Null Check (Feet To Inch)
          it('should return null when given null', () => {
             var quantityObject = new QuantityConversion(null);
@@ -86,9 +86,54 @@ describe('Tests for Length Conversions:\n', () => {
         });
 
         // T.C 1.9: Value Check (Feet To Inch)
-        it('should return equal when given 1 inch', () => {
-            var quantityObject = new QuantityConversion(12);
+        it('should return equal when given 12 feet equals 1 inch', () => {
+            var quantityObject = new QuantityConversion(1);
             assert.equal(quantityObject.getFeetToInchConversion(), 1);
         });
     })
-})
+
+    // Test Cases for Feet To Yard Conversions
+    describe('\nTests for Feet To Yard Conversions:', () => {
+        // T.C 2.1: Test case to check 3 Feet equals 1 Yard
+         it('should return equal when given 3 feet and 1 yard', () => {
+            var threeFeet = new QuantityConversion(3);
+            var oneYard = new QuantityConversion(1);
+            assert.equal(threeFeet.getInchToFeetConversion(), oneYard.getFeetToYardConversion());
+        });
+
+        // T.C 2.2: Test case to check 1 Foot not equals 1 Yard
+        it('should not return equal when given 1 foot and 1 yard', () => {
+            var oneFoot = new QuantityConversion(1);
+            var oneYard = new QuantityConversion(1);
+            assert.notEqual(oneFoot.getInchToFeetConversion(), oneYard.getFeetToYardConversion());
+        });
+
+        // T.C 2.3: Test case to check 1 Inch not equals 1 Yard
+        it('should not return equal when given 1 inch and 1 yard', () => {
+            var oneInch = new QuantityConversion(1);
+            var oneYard = new QuantityConversion(1);
+            assert.notEqual(oneInch.getInchToFeetConversion(), oneYard.getFeetToYardConversion());
+        });
+
+        // T.C 2.4: Test case to check 1 Yard equals 36 Inches
+        it('should return equal when given 1 yard and 36 inches', () => {
+            var oneYard = new QuantityConversion(1);
+            var thirtySixInches = new QuantityConversion(36);
+            assert.equal(oneYard.getFeetToYardConversion(), thirtySixInches.getFeetToInchConversion());
+        });
+
+        // T.C 2.5: Test case to check 36 Inches equals 1 Yard
+        it('should return equal when given 36 inches and 1 yard', () => {
+            var thirtySixInches = new QuantityConversion(36);
+            var oneYard = new QuantityConversion(1)
+            assert.equal(thirtySixInches.getFeetToInchConversion(), oneYard.getFeetToYardConversion());
+        });
+
+        // T.C 2.6: Test case to check 1 Yard equals 3 Feet
+        it('should return equal when given 1 yard and 3 feet', () => {
+            var oneYard = new QuantityConversion(1);
+            var threeFeet = new QuantityConversion(3);
+            assert.equal(oneYard.getFeetToYardConversion(), threeFeet.getInchToFeetConversion());
+        });
+    });
+});
